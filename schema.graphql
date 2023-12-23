@@ -1,0 +1,20 @@
+type Model {
+  name: String
+  urls: [String]
+}
+
+type Query {
+  listAllModels: [Model]
+  searchModelsByName(nameContains: String): [Model]
+  getLocalModels: [String]
+  getModelUrlsContaining(searchTerm: String): [String]
+}
+
+type Mutation {
+  installModelFromGallery(modelName: String): String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
